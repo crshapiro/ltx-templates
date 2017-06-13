@@ -1,0 +1,84 @@
+\ProvidesPackage{beamerthemeJHU}
+\selectcolormodel{rgb}
+\mode<presentation>
+
+\definecolor{logoblue}{RGB}{0, 45, 144}
+\definecolor{gray1}{RGB}{229, 226, 224}
+\definecolor{gray0}{RGB}{245, 245, 245}
+\definecolor{blue0}{RGB}{114,172,229}
+
+\setbeamercolor{headline}{bg=logoblue}
+\setbeamercolor{title in headline}{fg=white}
+\setbeamercolor{author in headline}{fg=white}
+\setbeamercolor{institute in headline}{fg=white}
+
+\setbeamercolor{author in head/foot}{fg=white, bg=logoblue}
+\setbeamercolor{title in head/foot}{fg=white, bg=logoblue}
+
+\setbeamercolor*{normal text}{fg=black, bg=white}
+\setbeamercolor*{block body}{fg=black, bg=gray0}
+\setbeamercolor*{block title}{fg=white,bg=blue0}
+\setbeamerfont{block title}{size=\large,series=\bf}
+
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+\setbeamertemplate{block begin}{
+    \vskip.75ex
+    \begin{beamercolorbox}[ht=3.5ex,dp=0ex,center,leftskip=-1em,colsep*=.75ex]{block title}%
+    \usebeamerfont*{block title}%
+    {\phantom{Gg}\insertblocktitle}% phantom because of baseline problem
+    \end{beamercolorbox}%
+    \setlength{\parskip}{1em}
+    {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+    \usebeamerfont{block body}%
+    
+    \begin{beamercolorbox}[leftskip=1em,rightskip=1em,colsep*=.75ex,sep=0.5ex,vmode]{block body} 
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{\vskip-1em}%
+    }
+    \setbeamertemplate{block end}{
+    \end{beamercolorbox}
+}
+
+\setbeamertemplate{headline}{  
+    \leavevmode
+
+    \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \begin{columns}[T]
+    \begin{column}{.02\paperwidth}
+    \end{column}
+    \begin{column}{.7\paperwidth}
+    \vskip8ex
+    \raggedleft
+    \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
+    \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+    \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}     
+    \end{column}
+    \begin{column}{.25\paperwidth}
+    \begin{center}
+    \includegraphics[width=.95\linewidth]{logos/whiting.pdf}
+    \end{center}
+    \end{column}
+    \begin{column}{.02\paperwidth}
+    \end{column}
+    \end{columns}
+    \vskip2ex
+    \end{beamercolorbox}
+
+    \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+    \rule{0pt}{3pt}
+    \end{beamercolorbox}
+}
+
+\mode<all>
+
+% adapt height of itemize rectangles
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{itemize item}{\raisebox{0.12ex}{$\blacktriangleright$}\hskip0.1em}
+\setbeamertemplate{itemize subitem}{\raisebox{0.12ex}{$\triangleright$}\hskip0.1em}
+% or define your own template using \defbeamertemplate{itemize item}, see beameruserguide.pdf
+
+% equal font sizes for all levels
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\normalsize}
